@@ -29,7 +29,7 @@
                     </div>
                 </el-tab-pane>
                 <el-tab-pane label="小食">
-                    <div class="snacl">
+                    <div class="snack">
                     </div>
                 </el-tab-pane>
                 <el-tab-pane label="饮品">
