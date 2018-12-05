@@ -1,5 +1,10 @@
 # kuaican
 
+参考这个来的:
+http://jspang.com/post/vuedemo.html
+
+
+
 ## Project setup
 ```
 npm install
@@ -27,3 +32,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
