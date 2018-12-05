@@ -32,7 +32,7 @@ export default {
     .leftNav{
         float: left;
         height: 100%;
-    width: 15%;
+    width: 10%;
     font-size: 20px;
         background-color: #409cc1;
 

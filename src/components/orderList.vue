@@ -1,22 +1,20 @@
 <template>
-    <div class="orderList" id="orderList">
+    <div class="orderList">
         <el-tabs class="tabs">
             <el-tab-pane label="点餐">
-                <el-table :data="tableData" border show-summary style="width: 100%">
+                <el-table :data="tableData" border  show-summary style="width: 100%">
                     <el-table-column prop="goodsName" label="商品"></el-table-column>
                     <el-table-column prop="count" label="数量" width="100"></el-table-column>
                     <el-table-column prop="price" label="金额" width="100"></el-table-column>
                     <el-table-column label="操作" width="100" fixed="right">
                         <template scope="scope">
-                            <el-button type="text" size="medium">删除</el-button>
-                            <el-button type="text" size="medium">增加</el-button>
+                            <el-button type="text" size="medium" @click="remove">删除</el-button>
+                            <el-button type="text" size="medium" @click="add">增加</el-button>
                         </template>
                     </el-table-column>
                 </el-table>
-            </el-tab-pane>
-            <el-tab-pane label="挂单"></el-tab-pane>
-            <el-tab-pane label="外卖"></el-tab-pane>
-            <div class="control">
+
+             <div class="control">
                 <el-row>
                     <el-col :span="8">
                         <el-button type="warning">挂单</el-button>
@@ -29,6 +27,13 @@
                     </el-col>
                 </el-row>
             </div>
+
+            </el-tab-pane>
+
+            <el-tab-pane label="挂单"></el-tab-pane>
+
+            <el-tab-pane label="外卖"></el-tab-pane>
+
         </el-tabs>
     </div>
 </template>
@@ -58,17 +63,27 @@ export default {
             }]
         }
     },
-    mounted: function() {
-        var height = document.body.clientHeight || document.documentElement.clientHeight;
-        document.getElementById('orderList').style.height = height + 'px';
+
+    methods:{
+            remove:function(){
+
+
+
+
+            },
+            add:function(){
+
+
+
+            }
     }
 }
 </script>
 <style>
 .orderList {
     height: 100%;
-    background-color: #ccc;
-    border-right: 1px solid #4F5FEc;
+    background-color: #F9FaFc;
+    border-right: 1px solid #c0c0ca;
 }
 
 .tabs {
@@ -114,6 +129,7 @@ export default {
 
     .control {
         margin-top: 50px;
+        text-align:center;
     }
 }
 </style>

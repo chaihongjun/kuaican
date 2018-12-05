@@ -18,12 +18,12 @@
                 <el-tab-pane label="主食">
                     <div class="staple">
                         <ul>
-                            <li>
+                            <li v-for="allGood in allGoods">
                                 <span class="goodsImg">
                                         <img src="https://via.placeholder.com/150x120" alt="">
                                   </span>
-                                <span class="goodsName">食品名称</span>
-                                <span class="goodsPrice">￥元</span>
+                                <span class="goodsName">{{allGood.goodsName}}</span>
+                                <span class="goodsPrice">￥{{allGood.price}}元</span>
                             </li>
                         </ul>
                     </div>
@@ -137,7 +137,11 @@ export default {
                 price: 17
             }]
         }
-    }
+    },
+        mounted: function() {
+        var height = document.body.clientHeight || document.documentElement.clientHeight;
+        document.getElementById('productList').style.height = height + 'px';
+    },
 }
 </script>
 <style>
@@ -145,18 +149,22 @@ export default {
     float: left;
     width: 100%;
 }
+
 .offenGoods {
     float: left;
     width: 100%;
     background-color: #ddd;
 }
+
 .offenGoods .title {
     text-align: center;
 }
+
 .often-goods-list ul {
     padding: 0;
     margin: 0;
 }
+
 .often-goods-list li {
     list-style-type: none;
     float: left;
@@ -166,13 +174,16 @@ export default {
     background-color: #fff;
     font-size: 20px;
 }
+
 .o-price {
     font-size: 16px;
     color: #58B7FF;
 }
+
 .allGoods {
     float: left;
     width: 100%;
+    height: 100%;
     background-color: #aaa;
 }
 </style>
@@ -183,44 +194,58 @@ export default {
         flex-direction: row;
         width: 100%;
     }
+
     .el-tabs__header {
         margin: 0;
     }
+
     #tab-0 {
         flex: 1;
         text-align: center;
     }
+
     #tab-1 {
         flex: 1;
         text-align: center;
     }
+
     #tab-2 {
         flex: 1;
         text-align: center;
     }
+
     li {
         float: left;
         list-style: none;
         padding: 5px;
         margin: 10px;
+
         span {
             display: block;
+
             img {
                 width: 80%;
             }
         }
-            .goodsImg{
-           float: left;
+
+        .goodsImg {
+            float: left;
         }
+
         .goodsName {
             float: left;
             text-align: center;
             margin: 10px auto;
         }
-          .goodsPrice {
+
+        .goodsPrice {
             text-align: center;
             margin: 10px auto;
         }
+    }
+
+    .el-tabs__content {
+        height: 100%;
     }
 }
 </style>

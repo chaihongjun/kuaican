@@ -7,11 +7,11 @@
 
             <el-row>
               <!-- 订单操作栏目 -->
-                <el-col :span="8">
+                <el-col :span="8" id="orderList">
                     <orderList></orderList>
                 </el-col>
                 <!-- 商品展示栏目 -->
-                <el-col :span="16">
+                <el-col :span="16" id="productList">
                     <productList></productList>
                 </el-col>
 
@@ -30,7 +30,13 @@ export default {
         leftNav,
         orderList,
         productList
-    }
+    },
+
+     mounted: function() {
+        var Height = document.body.clientHeight || document.documentElement.clientHeight;
+        document.getElementById('orderList').style.height = Height + 'px';
+        document.getElementById('productList').style.height = Height + 'px';
+    },
 }
 </script>
 <style>
@@ -39,7 +45,7 @@ export default {
 }
 .main{
   float: left;
-  width: 85%;
+  width: 90%;
    height: 100%;
 }
 </style>
