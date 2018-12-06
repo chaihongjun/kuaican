@@ -4,6 +4,11 @@
 http://jspang.com/post/vuedemo.html
 
 
+78成的完成度:
+https://chaihongjun.github.io/kuaican/dist/index.html
+
+
+
 
 ## Project setup
 ```
