@@ -5,7 +5,7 @@
             <div class="title">常用商品</div>
             <div class="often-goods-list">
                 <ul>
-                    <li v-for="oftenGood in oftenGoods">
+                    <li v-for="oftenGood in oftenGoods" @click="selectFood(oftenGood)">
                         <span>{{oftenGood.goodsName}}</span>
                         <span class="o-price">￥{{oftenGood.price}}元</span>
                     </li>
@@ -18,7 +18,7 @@
                 <el-tab-pane label="主食">
                     <div class="staple">
                         <ul>
-                            <li v-for="staple in staples"  >
+                            <li v-for="staple in staples" @click="selectFood(staple)">
                                 <span class="goodsImg">
                                         <img src="https://via.placeholder.com/120x100" alt="">
                                   </span>
@@ -31,7 +31,7 @@
                 <el-tab-pane label="小食">
                     <div class="snack">
                         <ul>
-                            <li v-for="snack in snacks" >
+                            <li v-for="snack in snacks" @click="selectFood(snack)">
                                 <span class="goodsImg">
                                         <img src="https://via.placeholder.com/120x100" alt="">
                                   </span>
@@ -44,7 +44,7 @@
                 <el-tab-pane label="饮品">
                     <div class="drinks">
                         <ul>
-                            <li v-for="drink in drinks">
+                            <li v-for="drink in drinks" @click="selectFood(drink)">
                                 <span class="goodsImg">
                                         <img src="https://via.placeholder.com/120x100" alt="">
                                   </span>
@@ -57,7 +57,7 @@
                 <el-tab-pane label="套餐">
                     <div class="packages">
                         <ul>
-                            <li v-for="packageset in packages">
+                            <li v-for="packageset in packages" @click="selectFood(packageset)">
                                 <span class="goodsImg">
                                         <img src="https://via.placeholder.com/120x100" alt="">
                                   </span>
@@ -72,6 +72,7 @@
     </div>
 </template>
 <script>
+import Bus from '@/plugins/bus.js'
 import axios from 'axios'
 export default {
     name: "productList",
@@ -96,42 +97,41 @@ export default {
         //获取常用食品
         axios.get('https://www.easy-mock.com/mock/5b8b30dbf032f03c5e71de7f/kuaican/oftenGoods')
             .then(response => {
-                console.log(response);
+               // console.log(response);
                 this.oftenGoods = response.data;
-                console.log('oftenGoods:'+this.oftenGoods);
+               // console.log('oftenGoods:' + this.oftenGoods);
             })
             .catch(error => {
-                console.log(error);
+               // console.log(error);
                 alert('网络错误，不能访问1');
             })
         //分别获取各类型食品
         axios.get('https://www.easy-mock.com/mock/5b8b30dbf032f03c5e71de7f/kuaican/typeGoods')
             .then(response => {
-                console.log(response);
+             //   console.log(response);
                 //获取主食
                 this.staples = response.data[0];
-                console.log('staples:'+this.staples);
+              //  console.log('staples:' + this.staples);
                 // 获取小食
                 this.snacks = response.data[1];
-                console.log('snacks:'+this.snacks);
+              //  console.log('snacks:' + this.snacks);
                 //获取 饮品
                 this.drinks = response.data[2];
-                 console.log('drinks:'+this.drinks);
+               // console.log('drinks:' + this.drinks);
                 // 获取套餐
                 this.packages = response.data[3];
-                console.log('packages:'+this.packages);
+              //  console.log('packages:' + this.packages);
             })
             .catch(error => {
-                console.log(error);
+              //  console.log(error);
                 alert('网络错误，不能访问2');
             })
     },
     methods: {
-
-
-
-
-
+        //将选择的商品数据 发送到 orderlist组件
+        selectFood: function(goods) {
+            Bus.$emit('send', goods)
+        }
     }
 }
 </script>
@@ -165,7 +165,8 @@ export default {
     background-color: #fff;
     font-size: 20px;
 }
-.often-goods-list li:hover{
+
+.often-goods-list li:hover {
     cursor: pointer;
 }
 
@@ -185,7 +186,7 @@ export default {
     border: 1px solid #eee;
 }
 
-.allGoods li:hover{
+.allGoods li:hover {
     cursor: pointer;
 }
 </style>
