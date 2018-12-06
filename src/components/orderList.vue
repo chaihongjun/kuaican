@@ -7,7 +7,7 @@
                     <el-table-column prop="count" label="数量" width="100"></el-table-column>
                     <el-table-column prop="price" label="金额" width="100"></el-table-column>
                     <el-table-column label="操作" width="100" fixed="right">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <el-button type="text" size="medium" @click="remove">删除</el-button>
                             <el-button type="text" size="medium" @click="add">增加</el-button>
                         </template>
@@ -44,23 +44,7 @@ export default {
         return {
             //点餐数据
             // 写死测试一下而已
-            tableData: [{
-                goodsName: '可口可乐',
-                price: 8,
-                count: 2
-            }, {
-                goodsName: '香辣鸡腿堡',
-                price: 15,
-                count: 1
-            }, {
-                goodsName: '爱心薯条',
-                price: 8,
-                count: 1
-            }, {
-                goodsName: '甜筒',
-                price: 8,
-                count: 1
-            }]
+            tableData: []
         }
     },
 
@@ -72,6 +56,12 @@ export default {
 
             },
             add:function(){
+
+
+
+            },
+
+            addOrder:function(){
 
 
 

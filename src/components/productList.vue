@@ -5,7 +5,7 @@
             <div class="title">常用商品</div>
             <div class="often-goods-list">
                 <ul>
-                    <li v-for="oftenGood in oftenGoods">
+                    <li v-for="oftenGood in oftenGoods" >
                         <span>{{oftenGood.goodsName}}</span>
                         <span class="o-price">￥{{oftenGood.price}}元</span>
                     </li>
@@ -18,130 +18,112 @@
                 <el-tab-pane label="主食">
                     <div class="staple">
                         <ul>
-                            <li v-for="allGood in allGoods">
+                            <li v-for="staple in staples" >
                                 <span class="goodsImg">
-                                        <img src="https://via.placeholder.com/150x120" alt="">
+                                        <img src="https://via.placeholder.com/120x100" alt="">
                                   </span>
-                                <span class="goodsName">{{allGood.goodsName}}</span>
-                                <span class="goodsPrice">￥{{allGood.price}}元</span>
+                                <span class="goodsName">{{staple.goodsName}}</span>
+                                <span class="goodsPrice">￥{{staple.price}}元</span>
                             </li>
                         </ul>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane label="小食">
                     <div class="snack">
+                        <ul>
+                            <li v-for="snack in snacks" >
+                                <span class="goodsImg">
+                                        <img src="https://via.placeholder.com/120x100" alt="">
+                                  </span>
+                                <span class="goodsName">{{snack.goodsName}}</span>
+                                <span class="goodsPrice">￥{{snack.price}}元</span>
+                            </li>
+                        </ul>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane label="饮品">
-                    <div class="drinks"></div>
+                    <div class="drinks">
+                        <ul>
+                            <li v-for="drink in drinks" >
+                                <span class="goodsImg">
+                                        <img src="https://via.placeholder.com/120x100" alt="">
+                                  </span>
+                                <span class="goodsName">{{drink.goodsName}}</span>
+                                <span class="goodsPrice">￥{{drink.price}}元</span>
+                            </li>
+                        </ul>
+                    </div>
+                </el-tab-pane>
+                <el-tab-pane label="套餐">
+                    <div class="packages">
+                        <ul>
+                            <li v-for="packageset in packages">
+                                <span class="goodsImg">
+                                        <img src="https://via.placeholder.com/120x100" alt="">
+                                  </span>
+                                <span class="goodsName">{{packageset.goodsName}}</span>
+                                <span class="goodsPrice">￥{{packageset.price}}元</span>
+                            </li>
+                        </ul>
+                    </div>
                 </el-tab-pane>
             </el-tabs>
         </div>
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     name: "productList",
     data() {
         return {
-            oftenGoods: [{
-                goodsId: 1,
-                goodsName: '香辣鸡腿堡',
-                price: 18
-            }, {
-                goodsId: 2,
-                goodsName: '田园鸡腿堡',
-                price: 15
-            }, {
-                goodsId: 3,
-                goodsName: '和风汉堡',
-                price: 15
-            }, {
-                goodsId: 4,
-                goodsName: '快乐全家桶',
-                price: 80
-            }, {
-                goodsId: 5,
-                goodsName: '脆皮炸鸡腿',
-                price: 10
-            }, {
-                goodsId: 6,
-                goodsName: '魔法鸡块',
-                price: 20
-            }, {
-                goodsId: 7,
-                goodsName: '可乐大杯',
-                price: 10
-            }, {
-                goodsId: 8,
-                goodsName: '雪顶咖啡',
-                price: 18
-            }, {
-                goodsId: 9,
-                goodsName: '大块鸡米花',
-                price: 15
-            }, {
-                goodsId: 20,
-                goodsName: '香脆鸡柳',
-                price: 17
-            }],
-            allGoods: [{
-                goodsId: 1,
-                goodsImg: "http://7xjyw1.com1.z0.glb.clouddn.com/pos001.jpg",
-                goodsName: '香辣鸡腿堡',
-                price: 18
-            }, {
-                goodsId: 2,
-                goodsImg: "http://7xjyw1.com1.z0.glb.clouddn.com/pos002.jpg",
-                goodsName: '田园鸡腿堡',
-                price: 15
-            }, {
-                goodsId: 3,
-                goodsImg: "http://7xjyw1.com1.z0.glb.clouddn.com/pos004.jpg",
-                goodsName: '和风汉堡',
-                price: 15
-            }, {
-                goodsId: 4,
-                goodsImg: "http://7xjyw1.com1.z0.glb.clouddn.com/pos003.jpg",
-                goodsName: '快乐全家桶',
-                price: 80
-            }, {
-                goodsId: 5,
-                goodsImg: "http://7xjyw1.com1.z0.glb.clouddn.com/pos003.jpg",
-                goodsName: '脆皮炸鸡腿',
-                price: 10
-            }, {
-                goodsId: 6,
-                goodsImg: "http://7xjyw1.com1.z0.glb.clouddn.com/pos004.jpg",
-                goodsName: '魔法鸡块',
-                price: 20
-            }, {
-                goodsId: 7,
-                goodsImg: "http://7xjyw1.com1.z0.glb.clouddn.com/pos001.jpg",
-                goodsName: '可乐大杯',
-                price: 10
-            }, {
-                goodsId: 8,
-                goodsImg: "http://7xjyw1.com1.z0.glb.clouddn.com/pos003.jpg",
-                goodsName: '雪顶咖啡',
-                price: 18
-            }, {
-                goodsId: 9,
-                goodsImg: "http://7xjyw1.com1.z0.glb.clouddn.com/pos002.jpg",
-                goodsName: '大块鸡米花',
-                price: 15
-            }, {
-                goodsId: 20,
-                goodsImg: "http://7xjyw1.com1.z0.glb.clouddn.com/pos002.jpg",
-                goodsName: '香脆鸡柳',
-                price: 17
-            }]
+            oftenGoods: [],
+            //主食类数据
+            staples: [],
+            //小食
+            snacks: [],
+            // 饮料
+            drinks: [],
+            // 套餐
+            packages: []
         }
     },
-        mounted: function() {
+    mounted: function() {
         var height = document.body.clientHeight || document.documentElement.clientHeight;
         document.getElementById('productList').style.height = height + 'px';
     },
+    created: function() {
+        //获取常用食品
+        axios.get('https://www.easy-mock.com/mock/5b8b30dbf032f03c5e71de7f/kuaican/oftenGoods')
+            .then(response => {
+                console.log(response);
+                this.oftenGoods = response.data;
+            })
+            .catch(error => {
+                console.log(error);
+                alert('网络错误，不能访问1');
+            })
+        //分别获取各类型食品
+        axios.get('https://www.easy-mock.com/mock/5b8b30dbf032f03c5e71de7f/kuaican/typeGoods')
+            .then(response => {
+                console.log(response);
+                //获取主食
+                this.staples = response.data[0];
+                // 获取小食
+                this.snacks = response.data[1];
+                //获取 饮品
+                this.drinks = response.data[2];
+                // 获取套餐
+                this.packages = response.data[3];
+            })
+            .catch(error => {
+                console.log(error);
+                alert('网络错误，不能访问2');
+            })
+    },
+    methods: {
+
+    }
 }
 </script>
 <style>
@@ -186,6 +168,10 @@ export default {
     height: 100%;
     background-color: #aaa;
 }
+
+.allGoods li {
+    border: 1px solid #eee;
+}
 </style>
 <style lang="scss">
 .allGoods {
@@ -214,17 +200,23 @@ export default {
         text-align: center;
     }
 
+    #tab-3 {
+        flex: 1;
+        text-align: center;
+    }
+
     li {
         float: left;
         list-style: none;
         padding: 5px;
         margin: 10px;
+        background-color: #fff;
 
         span {
             display: block;
 
             img {
-                width: 80%;
+                display: block;
             }
         }
 
@@ -235,12 +227,12 @@ export default {
         .goodsName {
             float: left;
             text-align: center;
-            margin: 10px auto;
+            margin: 10px;
         }
 
         .goodsPrice {
             text-align: center;
-            margin: 10px auto;
+            margin: 10px;
         }
     }
 

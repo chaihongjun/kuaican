@@ -24,6 +24,7 @@
 import leftNav from '@/components/leftNav'
 import orderList from '@/components/orderList'
 import productList from '@/components/productList'
+
 export default {
     name: 'home',
     components: {
