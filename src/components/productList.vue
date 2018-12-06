@@ -5,7 +5,7 @@
             <div class="title">常用商品</div>
             <div class="often-goods-list">
                 <ul>
-                    <li v-for="oftenGood in oftenGoods" >
+                    <li v-for="oftenGood in oftenGoods">
                         <span>{{oftenGood.goodsName}}</span>
                         <span class="o-price">￥{{oftenGood.price}}元</span>
                     </li>
@@ -18,7 +18,7 @@
                 <el-tab-pane label="主食">
                     <div class="staple">
                         <ul>
-                            <li v-for="staple in staples" >
+                            <li v-for="staple in staples"  >
                                 <span class="goodsImg">
                                         <img src="https://via.placeholder.com/120x100" alt="">
                                   </span>
@@ -44,7 +44,7 @@
                 <el-tab-pane label="饮品">
                     <div class="drinks">
                         <ul>
-                            <li v-for="drink in drinks" >
+                            <li v-for="drink in drinks">
                                 <span class="goodsImg">
                                         <img src="https://via.placeholder.com/120x100" alt="">
                                   </span>
@@ -98,6 +98,7 @@ export default {
             .then(response => {
                 console.log(response);
                 this.oftenGoods = response.data;
+                console.log('oftenGoods:'+this.oftenGoods);
             })
             .catch(error => {
                 console.log(error);
@@ -109,12 +110,16 @@ export default {
                 console.log(response);
                 //获取主食
                 this.staples = response.data[0];
+                console.log('staples:'+this.staples);
                 // 获取小食
                 this.snacks = response.data[1];
+                console.log('snacks:'+this.snacks);
                 //获取 饮品
                 this.drinks = response.data[2];
+                 console.log('drinks:'+this.drinks);
                 // 获取套餐
                 this.packages = response.data[3];
+                console.log('packages:'+this.packages);
             })
             .catch(error => {
                 console.log(error);
@@ -122,6 +127,10 @@ export default {
             })
     },
     methods: {
+
+
+
+
 
     }
 }
@@ -152,9 +161,12 @@ export default {
     float: left;
     border: 1px solid #E5E9F2;
     padding: 10px;
-    margin: 5px;
+    margin: 10px;
     background-color: #fff;
     font-size: 20px;
+}
+.often-goods-list li:hover{
+    cursor: pointer;
 }
 
 .o-price {
@@ -171,6 +183,10 @@ export default {
 
 .allGoods li {
     border: 1px solid #eee;
+}
+
+.allGoods li:hover{
+    cursor: pointer;
 }
 </style>
 <style lang="scss">

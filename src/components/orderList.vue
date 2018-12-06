@@ -44,29 +44,15 @@ export default {
         return {
             //点餐数据
             // 写死测试一下而已
-            tableData: []
+            tableData: [],
+
+
+
+
+
+
         }
     },
-
-    methods:{
-            remove:function(){
-
-
-
-
-            },
-            add:function(){
-
-
-
-            },
-
-            addOrder:function(){
-
-
-
-            }
-    }
 }
 </script>
 <style>

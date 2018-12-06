@@ -37,7 +37,8 @@ export default {
         var Height = document.body.clientHeight || document.documentElement.clientHeight;
         document.getElementById('orderList').style.height = Height + 'px';
         document.getElementById('productList').style.height = Height + 'px';
-    },
+    }
+
 }
 </script>
 <style>
